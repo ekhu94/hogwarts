@@ -9,11 +9,11 @@ class App extends Component {
   state = {
     hogsList: hogs,
     greaseFilter: true,
-    nameSort: false,
-    weightSort: false
+    nameSort: true,
+    weightSort: true
   };
 
-  onFilterClick = async () => {
+  onFilterClick = () => {
     const {greaseFilter, hogsList} = this.state;
     this.setState({ greaseFilter: !greaseFilter });
     if (greaseFilter) {
@@ -25,11 +25,33 @@ class App extends Component {
   }
 
   onNameClick = () => {
-
+    const {nameSort} = this.state;
+    this.setState({ nameSort: !nameSort });
+    if (nameSort) {
+      const sortHogs = hogs.slice().sort((a, b) => {
+        let fa = a.name.toLowerCase();
+        let fb = b.name.toLowerCase();
+        if (fa < fb) return -1;
+        if (fa > fb) return 1;
+        return 0;
+      });
+      this.setState({ hogsList: sortHogs });
+    } else {
+      this.setState({ hogsList: hogs });
+    }
   }
 
   onWeightClick = () => {
-
+      const {weightSort} = this.state;
+      this.setState({ weightSort: !weightSort });
+    if (weightSort) {
+      const sortHogs = hogs.slice().sort((a, b) => {
+        return b.weight - a.weight
+      });
+      this.setState({ hogsList: sortHogs });
+    } else {
+      this.setState({ hogsList: hogs });
+    }
   }
 
   render() {

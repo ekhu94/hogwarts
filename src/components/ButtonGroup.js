@@ -7,14 +7,20 @@ class ButtonGroup extends React.Component {
             <div className="ui buttons">
                 <button 
                     className="ui button"
-                    onClick={() => this.props.onFilterClick()}
+                    onClick={this.props.onFilterClick}
                 >
                     Greased Pigs Toggle
                 </button>
-                <button className="ui button">
+                <button
+                    className="ui button"
+                    onClick={this.props.onNameClick}
+                >
                     Sort By Name
                 </button>
-                <button className="ui button">
+                <button
+                    className="ui button"
+                    onClick={this.props.onWeightClick}
+                >
                     Sort By Weight
                 </button>
             </div>
