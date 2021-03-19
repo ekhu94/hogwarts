@@ -1,15 +1,16 @@
 import hogs from "../porkers_data";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../App.css";
 import Nav from "./Nav";
+import HogsContainer from './HogsContainer';
 
 const App = () => {
-  
+  const [hogsList, setHogsList] = useState(hogs);
   
   return (
     <div className="App">
       <Nav />
-      <p>{text}</p>
+      <HogsContainer hogs={hogsList} />
     </div>
   );
 };
