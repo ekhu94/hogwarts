@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import HogsCard from './HogsCard';
 
 const HogsContainer = ({ hogs }) => {
+    const [hogsList, setHogsList] = useState(hogs);
 
     const renderImg = name => {
         let pigName = name.split(' ').join('_').toLowerCase();
         return require(`../hog-imgs/${pigName}.jpg`);
     }
 
-    const renderedHogs = hogs.map(h => {
+    const renderedHogs = hogsList.map(h => {
         return <HogsCard
                     key={h.name}
                     hog={h}
