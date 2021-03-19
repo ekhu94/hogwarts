@@ -9,7 +9,11 @@ const HogsContainer = ({ hogs }) => {
     }
 
     const renderedHogs = hogs.map(h => {
-        return <HogsCard key={h.name} hog={h} img={renderImg(h.name)} />
+        return <HogsCard
+                    key={h.name}
+                    hog={h}
+                    img={renderImg(h.name)}
+                />
     });
     return (
         <div className="ui grid container">
